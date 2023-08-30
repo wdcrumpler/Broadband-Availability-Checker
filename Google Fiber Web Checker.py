@@ -11,15 +11,6 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions as EC
 from docx import Document
 
-def fetch_page_content(url, driver):
-    driver.get(url)
-    wait = WebDriverWait(driver, 10)
-    wait.until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-    return driver.page_source
-
-def parse_content(content):
-    return BeautifulSoup(content, 'html.parser')
-
 # Read data from the CSV file into a pandas DataFrame and initialize columns
 data = pd.read_csv('addresses.csv')
 data['Eligible (GF)'] = ''
